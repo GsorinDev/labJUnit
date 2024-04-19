@@ -10,14 +10,18 @@ pipeline {
         }
         stage('Build') {
             steps {
-                // Build your Maven project
-                sh 'mvn clean package'
+                withMaven(maven: 'mvn') {
+                    // Build your Maven project
+                    sh 'mvn clean package'
+                }
             }
         }
         stage('Test') {
             steps {
-                // Run Maven tests
-                sh 'mvn test'
+                withMaven(maven: 'mvn') {
+                    // Build your Maven project
+                    sh 'mvn test'
+                }
             }
             post {
                 success {
