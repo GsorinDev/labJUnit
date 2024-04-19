@@ -13,7 +13,7 @@ pipeline {
         git 'https://github.com/GsorinDev/labJUnit.git'
       }
     }
-    stage('Create a new .jar') {
+    stage('Install package') {
 
       steps {
         sh 'mvn clean install -DskipTests'
